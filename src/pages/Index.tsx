@@ -116,7 +116,7 @@ const Index = () => {
           <Card className="mb-6 border-destructive/40 bg-destructive/5 p-4">
             <div className="text-sm font-medium text-destructive">Deployment config required</div>
             <div className="text-xs text-muted-foreground mt-1">
-              Set <strong>VITE_SUPABASE_URL</strong> and <strong>VITE_SUPABASE_PUBLISHABLE_KEY</strong> in Vercel Project Settings -> Environment Variables, then redeploy.
+              Set <strong>VITE_SUPABASE_URL</strong> and <strong>VITE_SUPABASE_PUBLISHABLE_KEY</strong> in Vercel Project Settings {"->"} Environment Variables, then redeploy.
             </div>
           </Card>
         )}

@@ -28,4 +28,4 @@ export const supabase = createClient<Database>(
       autoRefreshToken: true,
     },
   },
-});
+);
