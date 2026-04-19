@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#111827" />
+  <rect x="40" y="40" width="1200" height="640" rx="16" fill="#0f172a" stroke="#334155" stroke-width="2" />
+  <text x="640" y="300" text-anchor="middle" fill="#e2e8f0" font-size="44" font-family="Segoe UI, Arial, sans-serif">Screenshot Placeholder</text>
+  <text x="640" y="360" text-anchor="middle" fill="#94a3b8" font-size="28" font-family="Segoe UI, Arial, sans-serif">Progress Dashboard</text>
+  <text x="640" y="430" text-anchor="middle" fill="#64748b" font-size="20" font-family="Segoe UI, Arial, sans-serif">Replace file: assets/screenshots/03-progress-dashboard.svg</text>
+</svg>

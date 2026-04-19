@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820">
+  <rect width="1400" height="820" fill="#0f172a" />
+  <text x="700" y="70" text-anchor="middle" fill="#e2e8f0" font-size="34" font-family="Segoe UI, Arial, sans-serif">Architecture Diagram Placeholder</text>
+
+  <rect x="80" y="180" width="320" height="140" rx="12" fill="#1e293b" stroke="#475569" />
+  <text x="240" y="250" text-anchor="middle" fill="#cbd5e1" font-size="22" font-family="Segoe UI, Arial, sans-serif">React Frontend</text>
+
+  <rect x="540" y="120" width="320" height="140" rx="12" fill="#1e293b" stroke="#475569" />
+  <text x="700" y="190" text-anchor="middle" fill="#cbd5e1" font-size="22" font-family="Segoe UI, Arial, sans-serif">Supabase Edge Functions</text>
+
+  <rect x="540" y="340" width="320" height="140" rx="12" fill="#1e293b" stroke="#475569" />
+  <text x="700" y="410" text-anchor="middle" fill="#cbd5e1" font-size="22" font-family="Segoe UI, Arial, sans-serif">Postgres + pgvector</text>
+
+  <rect x="1000" y="230" width="320" height="140" rx="12" fill="#1e293b" stroke="#475569" />
+  <text x="1160" y="300" text-anchor="middle" fill="#cbd5e1" font-size="22" font-family="Segoe UI, Arial, sans-serif">AI Gateway</text>
+
+  <line x1="400" y1="250" x2="540" y2="190" stroke="#93c5fd" stroke-width="3" />
+  <line x1="400" y1="250" x2="540" y2="410" stroke="#93c5fd" stroke-width="3" />
+  <line x1="860" y1="190" x2="1000" y2="300" stroke="#93c5fd" stroke-width="3" />
+  <line x1="860" y1="410" x2="1000" y2="300" stroke="#93c5fd" stroke-width="3" />
+
+  <text x="700" y="760" text-anchor="middle" fill="#64748b" font-size="20" font-family="Segoe UI, Arial, sans-serif">Replace file: assets/diagrams/architecture-diagram.svg</text>
+</svg>

@@ -1,0 +1,16 @@
+project_id = "heekxcsmltfpwrjdbbcg"
+
+[functions.ingest-syllabus]
+verify_jwt = false
+
+[functions.generate-quiz]
+verify_jwt = false
+
+[functions.evaluate-answer]
+verify_jwt = false
+
+[functions.teach-topic]
+verify_jwt = false
+
+[functions.doubt-chat]
+verify_jwt = false
