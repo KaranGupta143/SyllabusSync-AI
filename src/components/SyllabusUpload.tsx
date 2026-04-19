@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
 import { extractPdfText } from "@/lib/pdf";
-import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/integrations/supabase/client";
 import { getDeviceId } from "@/lib/device";
 
 interface Props {
@@ -44,10 +44,6 @@ export function SyllabusUpload({ onIngested }: Props) {
   };
 
   const handleSubmit = async () => {
-    if (!isSupabaseConfigured) {
-      toast.error("App is not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY in Vercel.");
-      return;
-    }
     if (text.trim().length < 50) {
       toast.error("Please provide more syllabus text (min 50 chars).");
       return;

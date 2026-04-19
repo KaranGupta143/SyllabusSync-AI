@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { ThinkingDots } from "@/components/ThinkingDots";
+import { SUPABASE_PUBLISHABLE_KEY, SUPABASE_URL } from "@/integrations/supabase/config";
 
 interface Msg {
   role: "user" | "assistant";
@@ -17,8 +18,6 @@ interface Props {
   onClose: () => void;
 }
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 const CHAT_URL = `${SUPABASE_URL}/functions/v1/doubt-chat`;
 
 export function DoubtPanel({ open, context, onClose }: Props) {
@@ -38,14 +37,6 @@ export function DoubtPanel({ open, context, onClose }: Props) {
   const send = async () => {
     const text = input.trim();
     if (!text || streaming) return;
-
-    if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: "App config missing. Please add VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY in deployment settings." },
-      ]);
-      return;
-    }
 
     const userMsg: Msg = { role: "user", content: text };
     setMessages((prev) => [...prev, userMsg]);
