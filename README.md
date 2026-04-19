@@ -22,9 +22,9 @@ SyllabusSync AI personalizes learning by grounding quizzes and explanations in t
 
 ### Screenshot Gallery
 
-![Upload Flow](https://raw.githubusercontent.com/KaranGupta143/SyllabusSync-AI/main/Screenshots/Screenshot%202026-04-19%20221127.png)
-![Quiz Feedback](https://raw.githubusercontent.com/KaranGupta143/SyllabusSync-AI/main/Screenshots/Screenshot%202026-04-19%20221059.png)
-![Teach Mode](https://raw.githubusercontent.com/KaranGupta143/SyllabusSync-AI/main/Screenshots/Screenshot%202026-04-19%20221151.png)
+![Upload Flow](Screenshots/upload-flow.png)
+![Quiz Feedback](Screenshots/quiz-feedback.png)
+![Teach Mode](Screenshots/teach-mode.png)
 
 All visual placeholders are organized in [assets/README.md](assets/README.md).
 
