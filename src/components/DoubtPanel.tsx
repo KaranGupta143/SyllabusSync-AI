@@ -17,7 +17,9 @@ interface Props {
   onClose: () => void;
 }
 
-const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/doubt-chat`;
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+const CHAT_URL = `${SUPABASE_URL}/functions/v1/doubt-chat`;
 
 export function DoubtPanel({ open, context, onClose }: Props) {
   const [messages, setMessages] = useState<Msg[]>([]);
@@ -36,6 +38,15 @@ export function DoubtPanel({ open, context, onClose }: Props) {
   const send = async () => {
     const text = input.trim();
     if (!text || streaming) return;
+
+    if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: "App config missing. Please add VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY in deployment settings." },
+      ]);
+      return;
+    }
+
     const userMsg: Msg = { role: "user", content: text };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
@@ -58,7 +69,7 @@ export function DoubtPanel({ open, context, onClose }: Props) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          Authorization: `Bearer ${SUPABASE_PUBLISHABLE_KEY}`,
         },
         body: JSON.stringify({
           messages: [...messages, userMsg],

@@ -11,7 +11,7 @@ import { DoubtPanel } from "@/components/DoubtPanel";
 import { Dashboard } from "@/components/Dashboard";
 import { ThinkingDots } from "@/components/ThinkingDots";
 import { GroundingBadge } from "@/components/GroundingBadge";
-import { supabase } from "@/integrations/supabase/client";
+import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
 
 type RightView =
   | { kind: "welcome" }
@@ -33,6 +33,10 @@ const Index = () => {
   const [refreshKey, setRefreshKey] = useState(0);
 
   const startQuiz = async (topic: string) => {
+    if (!isSupabaseConfigured) {
+      toast.error("Deployment config missing: add VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY.");
+      return;
+    }
     if (!syllabus) return;
     setView({ kind: "loading-quiz", topic });
     try {
@@ -51,11 +55,19 @@ const Index = () => {
   };
 
   const startTeach = (topic: string) => {
+    if (!isSupabaseConfigured) {
+      toast.error("Deployment config missing: add VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY.");
+      return;
+    }
     if (!syllabus) return;
     setView({ kind: "teach", topic });
   };
 
   const askDoubt = (ctx: string) => {
+    if (!isSupabaseConfigured) {
+      toast.error("Deployment config missing: add VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY.");
+      return;
+    }
     setDoubtContext(ctx);
     setDoubtOpen(true);
   };
@@ -100,6 +112,14 @@ const Index = () => {
       </header>
 
       <main className="container max-w-7xl px-4 md:px-6 py-6 md:py-10">
+        {!isSupabaseConfigured && (
+          <Card className="mb-6 border-destructive/40 bg-destructive/5 p-4">
+            <div className="text-sm font-medium text-destructive">Deployment config required</div>
+            <div className="text-xs text-muted-foreground mt-1">
+              Set <strong>VITE_SUPABASE_URL</strong> and <strong>VITE_SUPABASE_PUBLISHABLE_KEY</strong> in Vercel Project Settings -> Environment Variables, then redeploy.
+            </div>
+          </Card>
+        )}
         {!syllabus ? (
           <div className="max-w-2xl mx-auto space-y-6">
             <div className="text-center space-y-3 mb-8">
